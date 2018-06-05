@@ -21,9 +21,9 @@ jar 파일들과 프로젝트를 구성한다.
 
 .... tomcat 이 자꾸 에러가 나서 4시간이나 헤맸다. 자꾸 maven 밑에 있는 놈이 없다고 나와... <br/> 
 결론은 .m2 디렉토리 안에 있는 파일들을 지우고, 다시 설치해주면 된다.
-
-> Project 오른쪽 클릭 > Maven > Download Source <br/>
-> 이래도 아무일 없음 바로 밑에있는 Update Project 를 해주면 된다.
+> 1) .m2 디렉토리 찾아서 .m2 폴더 밑의 파일들을 지운다. (맥에서 찾는 방법: `open ~/.m2`)<br/>
+> 2) Project 오른쪽 클릭 > Maven > Download Source <br/>
+> 3) 이래도 아무일 없음 바로 밑에있는 Update Project 를 해주면 된다.
 <img width="590" alt="maven라이브러리 다시 받기" src="https://user-images.githubusercontent.com/12723983/40992584-300f6882-6932-11e8-8e47-617f9ca7f955.png">
 아 행복하다... 자자 이제
 
