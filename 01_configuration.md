@@ -31,3 +31,27 @@ jar 파일들과 프로젝트를 구성한다.
 
 참고 
 - https://jinseong0928.blogspot.com/2012/10/maven-dependency-missing-artifact.html
+
+## 영민오빠 환경셋팅
+1) 환경설정을 먼저 한다.
+java
+맥이 아닌 경우엔 encode 치고 workspace 탭에서 Other 가서 UTF-8 를 설정해줘야 한다.
+
+web 탭에서 utf-8 로 설정하기 (맥엔 되어있음)
+
+font - text font 에서 원하는거 바꿈.
+2) 톰캣 설정을 바꾼다.
+server.xml 8080 으로 설정되어있는데 충돌나지 않게 9999로 바꿔준다.
+urlencoding dㅡㄹ utf-8 로 설정해둠
+- 톰캣 자동으로 업데이트 해주는 방법. content.xml Cotent reloadable="true" 
+
+3) STS 에서 빈 프로젝트 화면에서 서버를 
+4) 톰캣 서버 생기면 설정되면server lands... 에 두번째 옵션을 선택해준다.
+
+5) 웹 aps 설정....??
+
+...
+
+
+
+
