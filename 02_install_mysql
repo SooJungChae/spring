@@ -1,4 +1,4 @@
-
+# *Not finished!*
 ## mysql 설정하기
 
 mac 에 mysql 을 설치하는 법이 여기 아주 자세~하게 나와있다. http://palpit.tistory.com/871
@@ -119,7 +119,25 @@ You have an error in your SQL syntax; check the manual that corresponds to your 
 
 UPDATE mysql.user SET password=password("elephant7") where user="root"
 
+이 에러는
 ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+- ID/PASSWORD 가 다르거나 
+- 접근권한이 없을 때 나온다.
+
+이럴 경우, root 경로의 비밀번호를 수동으로 변경해줘야 된다.
+
+1) 최상위 경로로 이동
+cd ../..
+
+2) mysql 설치 폴더 이동
+
+
+
+`ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)`
+
+
+
+
 
 -- 과제
 
