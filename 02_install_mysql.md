@@ -49,11 +49,50 @@ sudo /usr/local/mysql/support-files/mysql.server restart
 에러 첨으로 돌아옴 ㅠ.ㅠ
 
 - $ sudo ./mysql -u root
+
+**Error**
 ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
 
+**Cuase**
+패스워드 안쓰고 접근하려해서 거부당함
+
+**Solution**
+패스워드를 써주자.
+$ sudo ./mysql -pP@pwd123456
+
+---
+
+**Error**
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+
+**Cuase**
+패스워드 틀려서 거부당함
+
+**Solution**
+패스워드 까먹은 상황 -> admin 인 root user 에 새로운 패스워드를 설정 한다.
+1) mysqld 중지
+service mysqld stop --> 안됨
+$ sudo /usr/local/mysql/support-files/mysql.server stop
+
+2) 인증 생략 옵션 + 안전 모드로 데몬 실행 (패스워드 없이 mysql에 접속할 수 있다.)
+$ sudo /usr/local/mysql/bin/mysqld_safe --skip-grant &
+[2] 14348
+[1]   Done                    /usr/local/mysql/bin/mysqld_safe --skip-grant
+
+$ sudo /usr/local/mysql/bin/mysqld_safe --skip-grant-tables &
+[3] 14396
+[2]+  Stopped                 sudo /usr/local/mysql/bin/mysqld_safe --skip-grant
+
+3) mysql 콘솔로 들어가서 (mysql 접속이 안됨 ㅠㅠㅠ)
+$ /usr/bin/mysql -u root mysql --> 안됨
+$ sudo /usr/local/mysql/bin/mysql -u root mysql
+
+4) 새 패스워드 지정
+
+
+--- 
 https://stackoverflow.com/questions/2995054/access-denied-for-user-rootlocalhost-using-passwordno
 
-- admin 인 root user 에 새로운 패스워드를 설정해야 한다.
 Stop the service/daemon of mysql running
 [root ~]# service mysql stop   
 sudo /usr/local/mysql/support-files/mysql.server stop
@@ -119,28 +158,15 @@ You have an error in your SQL syntax; check the manual that corresponds to your 
 
 UPDATE mysql.user SET password=password("elephant7") where user="root"
 
-이 에러는
-ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
-- ID/PASSWORD 가 다르거나 
-- 접근권한이 없을 때 나온다.
-
-이럴 경우, root 경로의 비밀번호를 수동으로 변경해줘야 된다.
-
 1) 최상위 경로로 이동
 cd ../..
 
 2) mysql 설치 폴더 이동
 
 
-
-`ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)`
-
-
-
-
-
 -- 과제
 
-워크밴치 설치해오기~
-메이븐 리파지토리 연동해서 mysql연동
-스프링에 텍스트만 찍는거 해오기 (웹화면)
+[o] 워크밴치 설치해오기~
+[x] 메이븐 리파지토리 연동해서 mysql연동
+[x] 스프링에 텍스트만 찍는거 해오기 (웹화면)
+
