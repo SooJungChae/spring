@@ -1,6 +1,4 @@
-#스프링 철저 입문 2장 공부하기
-
-Inderface 다중상속이 된다.
+# 스프링 철저 입문 2장 공부하기
 
 ## 2.1 DI (Dependency Injection)
 
@@ -206,3 +204,13 @@ MessageSource 인터페이스를 들여다보면 3가지가 있는데,
 4) `getMessage` 메서드를 호출해서 사용한다.
 5) 문자열을 하드코딩 하기 싫다면 `MessageSourceResolvable`를 활용한다.
 
+---
+
+## 공부하다 알게된 것
+
+- Implements 대신 Inderface 쓰는 이유?
+  다중상속이 된다.
+- @Autowired : Spring 용 / @Injection, @Resource : 자바 기반 어노테이션
+- 생성자 : 객체를 초기화해주는 역할
+  
+  
