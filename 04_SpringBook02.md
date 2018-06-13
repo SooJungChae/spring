@@ -48,8 +48,6 @@ UserService userService = context.getBean(UserService.class);
 
 ### 의존성 주입
 
-
-
 ### 오토와이어링
 
 자바 설정 기반 방식에서 @Bean메서드를 사용하거나 xml기반 방식에서 <bean>요소를 사용하는 것처럼
@@ -64,6 +62,24 @@ UserService userService = context.getBean(UserService.class);
 
 2) 이름으로 오토와이어링
 
+### 빈 스코프
+
+스코프란, 빈의 생존 기간을 말한다.
+
+스프링 프레임워크에서 사용 가능한 스코프
+- singleton : 내가 이해했을 때 글로벌 변수 같은 개념. 별도로 스코프 지정하지 않았다면 singleton 으로 간주한다.
+- prototype : 멀티 쓰레드 환경에서 사용된다. 요청할 때마다 새로운 빈 인스턴스가 만들어진다.
+- request : HTTP 요청할 때마다 새로운 빈 인스턴스가 만들어진다.
+- session : HTTP 세션이 만들어질 대마다 새로운 빈 인스턴스가 만들어진다.
+- global session : potlet 환경에서 글로벌 http 세션 만들어질 때마다.
+- application : servlet context 가 만들어질 때마다 인스턴스가 만들어진다.
+- custom
+
+웹 어플리케이션 환경에선 request < session < singleton 순으로 뒤로 갈수록 더 오래 산다.
+
+만약 Singleton 스코프 안에 prototype 스코프 있다면?
+달라야 하는 prototype 스코프가 동일하게 여러번 생성되기 때문에 에러가 발생하게 된다.
+이럴 경우 prototype 스코프를 주입하지 않는 방식으로 해결한다. 필요할 때마다 DI컨테이너에서 빈을 찾아오면 된다.
 
 ## 2.2 AOP (Aspect Oriented Programming) 관점 지향 프로그래밍
 
