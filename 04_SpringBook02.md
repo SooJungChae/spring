@@ -34,6 +34,22 @@ UserService userService = context.getBean(UserService.class);
 - @Configuration어노테이션을 붙여 설정 클래스를 선언한다. (설정 클래스는 여러개 정의 가능)
 - @Bean어노테이션으로 빈을 정의한다. 메서드명이 빈의 이름. 빈의 인스턴스가 반환값이 된다.
 
+### 의존성 주입
+
+### 오토와이어링
+
+자바 설정 기반 방식에서 @Bean메서드를 사용하거나 xml기반 방식에서 <bean>요소를 사용하는 것처럼
+명시적으로 빈을 정의하지 않고도 DI컨테이너에 빈을 자동으로 주입하는 방식이다.
+타입으로 오토와이어링 하는 방법과 이름으로 오토와이어링 하는 방법이 있다.
+
+1) 타입으로 오토와이어링
+
+- @Autowired어노테이션을 넣는다.
+- 필수 조건을 완화하려면 @Autowired(required = false)를 설정한다.
+
+
+2) 이름으로 오토와이어링
+
 
 ## 2.2 AOP (Aspect Oriented Programming) 관점 지향 프로그래밍
 
