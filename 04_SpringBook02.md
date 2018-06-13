@@ -1,5 +1,7 @@
 #스프링 철저 입문 2장 공부하기
 
+Inderface 다중상속이 된다.
+
 ## 2.1 DI (Dependency Injection)
 
 여러가지의 클래스가 조합되어 있는 클래스를 만들려면 구현 클래스가 이미 개발되어 있어야 한다.
@@ -35,7 +37,20 @@ UserService userService = context.getBean(UserService.class);
 - @Configuration어노테이션을 붙여 설정 클래스를 선언한다. (설정 클래스는 여러개 정의 가능)
 - @Bean어노테이션으로 빈을 정의한다. 메서드명이 빈의 이름. 빈의 인스턴스가 반환값이 된다.
 
+### 빈 설정
+
+1) 자바기반
+- java configuration class 에서 @Configuration 설정클래스 선언
+- @Bean 빈 정의
+
+2) xml기반
+- <beans>안에 빈 정의 여러개
+- id="빈이름" class="해당빈의클래스"
+- <sonctructor-arg> 의 ref 속성에 주입할 빈의 이름 기재
+
 ### 의존성 주입
+
+
 
 ### 오토와이어링
 
@@ -128,6 +143,12 @@ Spring 은 프로퍼티 관리를 효과적으로 할 수 있게 해준다.
 1) Bean 정의 할 때 프로퍼티 활용
 @Value 어노테이션을 활용해서 별도의 프로퍼티 파일에 정의된 값을 소스에 주입할 수 있다.
 ```
+
+
+---
+
+의존성이 뭘까?
+
 @Value("${datasource.url}") String url, ...
 ```
 - `${프로퍼티키}`부분은 나중에 다른 값으로 치환될 자리라는 뜻이다. 플레이스 홀더 라고도 한다.
