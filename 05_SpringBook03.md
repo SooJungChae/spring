@@ -20,7 +20,7 @@
 
 ### 데이터 소스 설정
 - pom.xml파일에 spring-jdbc 를 정의한다.
-```
+```java
 <dependency>
   <groupId>org.springframework</groupId>
   <artifactId>spring-jdbc</artifactId>
@@ -40,7 +40,7 @@
 - JDBC에는 JdbcTemplate 클래스와 NamedParameterJdbcTemplate 클래스를 제공한다.
 - JdbcTemplate 바인딩 문자의 플레이스 홀더 : '?'
 - NamedParameterJdbcTemplate 바인딩 문자의 플레이스 홀더 : ':바인드 변수명'
-```
+```java
 // JdbcTemplate
 String sql = "SELECT user_name FROM user WHERE user_id = ?";
 // NamedParameterJdbcTemplate
@@ -91,7 +91,7 @@ Spring 에서는 rollback, commit 을 알아서 해주는
 - 여러 데이터 베이스를 사용하지만, 각각의 조작을 수행하고 하나의 트랜잭션으로 묶어
   한번에 성공하거나 실패하는 것으로 처리해야 하는 경우엔 글로벌 트랜잭션을 이용한다.
 - 다음을 지정하면 JtaTransactionManager 를 빈 형태로 사용할 수 있다.
-```
+```java
 <tx:jta-transaction-manager />
 ```
 
