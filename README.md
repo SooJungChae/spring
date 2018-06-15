@@ -8,4 +8,4 @@ This repository is for personal spring.js project.
 
 # 2주차
 - [스프링 철저 입문 2장 공부하기](https://github.com/SooJungChae/spring/blob/master/04_SpringBook02.md)
-
+- [스프링 철저 입문 3장 공부하기](https://github.com/SooJungChae/spring/blob/master/05_SpringBook03.md)
