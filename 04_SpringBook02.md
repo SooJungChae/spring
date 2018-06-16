@@ -13,14 +13,14 @@
 DI컨테이너에 인터페이스와 구현 클래스를 알려주고 의존 관계를 정의해주면 자동으로 생성되어 주입된다.
 인스턴스의 생성과 의존 관계의 연결 처리를 소스 코드에서 하지 않고 DI컨테이너가 대신하기 때문에 **제어가 역전되었다**라고 한다.
 
-DI 컨테이너의 장점
+### DI 컨테이너의 장점
 - 컴포넌트간의 의존성 해결
 - 어떤 컴포넌트는 반드시 단 하나의 인스턴스만 만들어 재사용되도록 싱글턴 객체로 만들 수 있음
 - 어떤 컴포넌트는 필요할 때마다 새로운 인스턴스를 사용하도록 프로토타입 객체로 만들 수 있음
 - 인스턴스의 스코프 관리
 - AOP작업
 
-사용방법
+### 사용방법
 1) ApplicationContext 로 DI 컨테이너를 만든다.
 ```
 ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
@@ -36,6 +36,7 @@ UserService userService = context.getBean(UserService.class);
 - @Bean어노테이션으로 빈을 정의한다. 메서드명이 빈의 이름. 빈의 인스턴스가 반환값이 된다.
 
 ### 빈 설정
+빈(Bean) 은 DI컨테이너에서 관리되면서 어플리케이션을 구성하는 컴포넌트 역할의 자바 객체.
 
 1) 자바기반
 - java configuration class 에서 @Configuration 설정클래스 선언
@@ -58,7 +59,6 @@ UserService userService = context.getBean(UserService.class);
 
 - @Autowired어노테이션을 넣는다.
 - 필수 조건을 완화하려면 @Autowired(required = false)를 설정한다.
-
 
 2) 이름으로 오토와이어링
 
@@ -83,14 +83,16 @@ UserService userService = context.getBean(UserService.class);
 
 ## 2.2 AOP (Aspect Oriented Programming) 관점 지향 프로그래밍
 
-비즈니스 로직과는 관계없는 로깅이나 캐시같은 작업들은 프로젝트의 이곳저곳 사용되고 있다.
-이건 DRY원칙에 미약하고 향후 변경에도 취약하다. 이렇게 **비즈니스 로직과는 거리가 있지만
-여러 모듈에 걸쳐 공통적이고 반복적으로 필요한 내용을 횡단 관심사라고 부른다.**
+**비즈니스 로직과는 관계없는** 로깅이나 캐시같은 작업들이 프로젝트의 이곳저곳 사용되고 있다면
+DRY원칙에 미약하고 향후 변경에도 취약하다. 이렇게 비즈니스 로직과는 거리가 있지만
+여러 모듈에 걸쳐 공통적이고 반복적으로 필요한 내용을 **횡단 관심사**라고 부른다.
 
 `보안, 로깅, 트랜잭션 관리, 모니터링, 캐시 처리, 예외 처리`
 
-이런 횡단 관심사들을 분리해서 한 곳으로 모으는 것을 횡단 관심사의 분리라 부르고, **관점 지향 프로그래밍(AOP)**이라고 한다.
+이런 횡단 관심사들을 분리해서 한 곳으로 모으는 것을 횡단 관심사의 분리라 부르고, 
+**관점 지향 프로그래밍(AOP)**이라고 한다.
 
+### AOP 관련 용어
 - 애스펙트 : 횡단 관심사의 단위. (로그를 출력한다, 예외를 처리한다. 트랜잭션을 관리한다.)
 - 조인 포인트 : 횡단 관심사가 실행될 지점이나 시점. 메서드 단위로 조인 포인트를 잡는다.
 - 어드바이스 : 횡단 관심사를 실제로 구현해서 처리하는 부분. (Around, Before, After ...)
@@ -100,10 +102,20 @@ UserService userService = context.getBean(UserService.class);
 
 ### 스프링 AOP
 
+DI 와 AOP의 차이? AOP hook 같은 개념 ()프록시 패턴같은 개념이다.
 스프링 프레임워크 안에는 AOP를 지원하는 모듈로 스프링AOP가 포함되어 있다.
 그리고 스프링AOP에는 AspectJ라는 AOP프레임워크가 포함되어 있다.
+AspectJ는 애스펙트와 어드바이스를 정의하기 위한 애너테이션이나 포인트 컷 표현 언어, 위빙 메커니즘을
+제공하는 역할을 한다.
 
-사용방법
+### 스프링 프로젝트에서 활용되는 AOP 기능
+- 트랜잭션 관리 `@Transactional`
+- 인가 `@PreAuthorize` admin인지 확인...
+- 캐싱 `@Cacheable` 같은 매개변수 사용하면 캐시에 등록해서 다음에 반환값 돌려준다.
+- 비동기 처리 `@Async`
+- 재처리 `@Retryable` 최대 3번까지 원하는 조건 만족할 때까지 재처리
+
+### 사용방법
 1) pom.xml 파일에 다음과 같이 의존 관계를 정의한다.
 ```
 <artifactId>spring-context</artifactId>
@@ -118,18 +130,29 @@ UserService userService = context.getBean(UserService.class);
 4) 어디바이스와 포인트컷 표현식을 붙인다. @Before("execution(* *..*ServiceImpl.*(..))")
 5) AOP를 활성화한다. @EnableAspectJAutoProxy / <aop:aspectj-autoproxy>
 
-
 ---
 
 ## 2.3 데이터 바인딩과 형 변환
 
-post한 데이터는 String 형식인데 get하는 입장에서는 Int만 받을 수 있다고 해보자.
-그럴 땐 C#에선 (Int32) 처럼 형변환을 해줘야 하는데, 데이터의 수가 많거나
-실수로 한 곳에서 형변환을 사용하지 않았다면 에러 잡는 데 매우 불편할꺼다.
+**데이터 바인딩**은 자바 객체의 프로퍼티에 외부에서 입력된 값을 설정하는 과정이고, 
+데이터 바인딩을 할 때 자바빈즈의 프로퍼티 타입에 맞게 입력된 문자열 값을 변환하는 게 **형변환**이다.
+
+Http 요청에서 많은 파라미터들의 값이 들어온다고 하자. 이때 한번에 데이터 바인딩을 하는 방법이 있다.
+`ServletRequestDataBinder`클래스를 사용한다. (스프링 MVC의 데이터 바인딩 기능을 활용하면
+    이 3줄마저도 필요없어진다...what?!)
+```
+EmployeeForm form = new EmployeeForm();
+ServletRequestDataBinder dataBinder = new ServletRequestDataBinder(form);
+dataBinder.bind(request);
+```
+이렇게 데이터 바인딩을 해줬고, 필요한 형식에 맞춰 형변환을 해줘야 한다.
+하나씩 형변환 하다가 실수로 한 곳에서 형변환을 사용하지 않았다면, 혹은 양이 너무 많다면
+에러 잡는 데 매우 불편할 것이고 코드가 복잡해질 것이다. 이 문제를 위해
 Spring 에서는 효율적인 형변환 인터페이스를 제공한다.
 
 1) String 값에 대한 데이터 바인딩
-DataBinder클래스에 데이터 바인딩 기능이 있다. Http 를 사용하는 환경에서는 서블릿 api에 맞게 커스터마이징 된
+DataBinder클래스에 데이터 바인딩 기능이 있다. 
+Http 를 사용하는 환경에서는 서블릿 api에 맞게 커스터마이징 된
 ServletRequestDataBinder클래스를 사용한다.
 ```
 Employee form = new EmployeeForm();
@@ -229,4 +252,9 @@ MessageSource 인터페이스를 들여다보면 3가지가 있는데,
 - @Autowired : Spring 용 / @Injection, @Resource : 자바 기반 어노테이션
 - 생성자 : 객체를 초기화해주는 역할
   
-  
+---
+
+## 다음 차 나의 목표!
+
+이젠 테스트 코드로 만들어보자. 책으로만 보니까 봐도 적용을 못하겠음 ㅠ
+기초 튜토리얼 좀 보면서 프로젝트 만드는 걸 좀 해보자.
