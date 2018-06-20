@@ -1,6 +1,37 @@
 # *Not finished!*
 ## mysql 설정하기
 
+mysql과 연결할 수 있도록 jdbc 를 설정해두어야 한다.
+myBatis 는?!
+
+데이터 베이스 연동하기
+1. DB라이브러리 가져오기
+myBatis 라이브러리 mybatis
+Spring 과 myBatis 를 연결하는 라이브러리 mybatis-spring
+Spring 의 jdbc 라이브러리 spring-jdbc
+Spring과 myBatis의 접속을 확인하기 위한 Spring junit test spring-test
+
+pom.xml 에 DB라이브러리를 설정하면 
+자동으로 Maven dependencies 에 해당 라이브러리가 설치된다.
+
+2. aop, context, jdbc, mybatis-spring 네임스페이스 추가
+
+pom.xml 에 라이브러리를 추가하면 네임스페이스가 root-context.xml 의 Namespaces 항목에
+자동으로 보이게 되며, 간단히 클릭 후 파일을 저장하면 된다.
+
+그럼 root-context.xml 에 자동으로 네임스페이스가 추가된 걸 볼 수 있다.
+### root-context.xml 위치
+src/main/webapp/WEB-INF/spring/appServlet/root-context.xml 에 있다.
+
+Preference > Spring > Beans Support > Namespaces > root-context.xml
+
+database 를 연결하는 
+dataSource 는 보통 root-context.xml 에 작성한다.
+
+https://blog.hanumoka.net/2018/04/29/spring-20180429-spring-mybatis-mysql-setting/
+
+
+
 mac 에 mysql 을 설치하는 법이 여기 아주 자세~하게 나와있다. http://palpit.tistory.com/871
 아직 임시 비밀번호를 변경하진 않은 상태임.
 
