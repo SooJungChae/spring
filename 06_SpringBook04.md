@@ -18,7 +18,7 @@ MVC는 Controller, View, Model로 구성되어 있다.
 
 ### 스프링 MVC로 웹 어플리케이션을 개발했을 때의 특징
 
-- POJO 구현
+- POJO 구현 : 라이브러리 같은거 추가 안해도 사용 가능한 것. 단위테스트 하는게 수월해진다. 는 딱 그 메소드만! 테스트 하는 것.
 - 애너테이션을 이용한 정의 정보 설정
 - 유연한 메서드 시그니처 정의
 - Servlet API 추상화
@@ -211,3 +211,26 @@ public String viewInput(Model model) {
 Servlet 클래스의 구현 규칙을 지킨 자바 프로그램
 
 * 어플리케이션 컨텍스트 : 어플리케이션을 구성하는 것들. 폼, 이미지, 동영상 등등
+
+---
+
+### 6월 20일 스터디 내용
+
+* http 통신을 하려면 get 을 사용해야 한다.
+* http 포트는 80 https 포트는 443 을 사용한다.
+* 스프링은 '인터페이스'를 사용하기 때문에 유연함이 가장 큰 장점이다.
+* 날짜 시간 처리할 때 Joda-Time을 사용한다.
+* servlet : WAS 위에서 동작하는 받아주는 도구
+* DispatcherServlet = Front Controller 요청을 다 받아
+* HandlerMapping 은 
+* ViewResolver 어디다가 뿌릴꺼냐~
+* XSS : 악성 스크립트를 화면에 넣어서 http request를 하면 개인정보 탈취, 해킹하는 것 (필터로 막아야 한다. 이건 잘 모르니까 나중에 구현하면서 물어보기!)
+* 입력값 검사할 때 @NotNull 이 아니라 @NotEmpty를 써라.
+
+* 스프링 프레임워크 아키텍쳐 외우자! 내가 직접 그려볼 수 있어야 해. p.207
+* handlerMapping 에선 url 가 어딘지 알려주고
+* handlerAdapter 는 핸들러가 어딘지 알려주고
+* ViewResolver 말고 다른 resolver들도 많다. (p.210) MultipartResolver 는 파일사용할 때 사용
+* web.xml 은 Servlet 에서 돌아가고
+* servlet-context 파일은 dispatcher servlet 에서 돌아간다.
+* p.217 보고 좀 
