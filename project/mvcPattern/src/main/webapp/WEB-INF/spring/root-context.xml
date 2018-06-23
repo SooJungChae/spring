@@ -21,14 +21,15 @@
 		<property name="password" value="Asdfghjkl123!"></property>
 	</bean>
 	
+	<!-- myBatis 연동모듈의 핵심!SqlSession을 구현하고 코드에서 SqlSession 을 대체하는 역할을 한다.-->
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+    	<constructor-arg index="0" ref="sqlSession"/>
+    </bean>
+    
 	 <!-- mybatis SqlSessionFactoryBean -->
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
         <property name="mapperLocations" value="classpath:mappers/**/*.xml/"></property>
-    </bean>
-    
-    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-    	<constructor-arg index="0" ref="sqlSession"/>
     </bean>
     
     <!--  bean 등 -->
