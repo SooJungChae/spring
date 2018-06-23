@@ -5,14 +5,13 @@ mysql과 연결할 수 있도록 jdbc 를 설정해두어야 한다.
 myBatis 는?!
 
 데이터 베이스 연동하기
-1. DB라이브러리 가져오기
-myBatis 라이브러리 mybatis
-Spring 과 myBatis 를 연결하는 라이브러리 mybatis-spring
-Spring 의 jdbc 라이브러리 spring-jdbc
-Spring과 myBatis의 접속을 확인하기 위한 Spring junit test spring-test
-
-pom.xml 에 DB라이브러리를 설정하면 
+1. pom.xml 에 DB라이브러리를 설정한다.
 자동으로 Maven dependencies 에 해당 라이브러리가 설치된다.
+
+- myBatis 라이브러리 mybatis
+- Spring 과 myBatis 를 연결하는 라이브러리 mybatis-spring
+- Spring 의 jdbc 라이브러리 spring-jdbc
+- Spring과 myBatis의 접속을 확인하기 위한 Spring junit test spring-test
 
 2. aop, context, jdbc, mybatis-spring 네임스페이스 추가
 
@@ -20,13 +19,31 @@ pom.xml 에 라이브러리를 추가하면 네임스페이스가 root-context.x
 자동으로 보이게 되며, 간단히 클릭 후 파일을 저장하면 된다.
 
 그럼 root-context.xml 에 자동으로 네임스페이스가 추가된 걸 볼 수 있다.
-### root-context.xml 위치
+root-context 에 네임스페이스 설정해두면 어느 곳에서나 사용할 수 있다.
+(aop, beans, context, mvc 선택함)
+
+- root-context.xml 위치
 src/main/webapp/WEB-INF/spring/appServlet/root-context.xml 에 있다.
 
-Preference > Spring > Beans Support > Namespaces > root-context.xml
+3. root-context.xml에 datasource 설정
+database 를 연결하는 dataSource 는 보통 root-context.xml 에 작성한다.
+스프링 jdbc 를 사용하여 datasource 를 설정한다.
+```
+<bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+	<property name="url" value="jdbc:mysql://127.0.0.1:3306/hanumoka_spring_template?useSSL=false"></property>
+	<property name="username" value="hanumoka"></property>
+	<property name="password" value="password"></property>
+</bean>
+```
 
-database 를 연결하는 
-dataSource 는 보통 root-context.xml 에 작성한다.
+4. spring-test로 단위테스트 해보기
+- src/test/java 에 DataSourceTest.java파일을 생성한다.
+
+
+
+
+
 
 https://blog.hanumoka.net/2018/04/29/spring-20180429-spring-mybatis-mysql-setting/
 

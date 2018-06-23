@@ -9,3 +9,4 @@ This repository is for personal spring.js project.
 # 2주차
 - [스프링 철저 입문 2장 공부하기 - 스프링 코어(DI, AOP)](https://github.com/SooJungChae/spring/blob/master/04_SpringBook02.md)
 - [스프링 철저 입문 3장 공부하기 - 데이터 접근(JDBC, Tx)](https://github.com/SooJungChae/spring/blob/master/05_SpringBook03.md)
+- [스프링 철저 입문 4장 공부하기 - 스프링 MVC 기초](https://github.com/SooJungChae/spring/blob/master/06_SpringBook04.md)

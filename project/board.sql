@@ -1,0 +1,1 @@
+insert into board (idx, title, contents, writer, regDate, flag) values (0, "안녕하세요", "12345", "채수정", now(), "N" );
