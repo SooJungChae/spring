@@ -7,4 +7,8 @@
 	<select id="selectBoard" resultType="com.soocompany.dto.BoardVO">
 		SELECT title FROM board
 	</select>
+	
+	<select id="readBoard" resultType="com.soocompany.dto.BoardVO">
+		SELECT idx, title, contents, writer, regDate, flag FROM board
+	</select>
 </mapper>

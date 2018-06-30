@@ -6,4 +6,5 @@ import com.soocompany.dto.BoardVO;
 
 public interface BoardDAO {
 	List<BoardVO> getTitle(); 
+	List<BoardVO> readBoard();
 }

@@ -19,4 +19,8 @@ public class BoardDAOImpl implements BoardDAO {
     public List<BoardVO> getTitle() {
         return sqlSession.selectList(Namespace+".selectBoard");
     }
+    
+    public List<BoardVO> readBoard() {
+    	return sqlSession.selectList(Namespace+ ".readBoard");
+    }
 }

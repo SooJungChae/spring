@@ -17,4 +17,8 @@ public class BoardServiceImpl {
 		return dao.getTitle();
 	}
 	
+	public List<BoardVO> selectBoardList() {
+		return dao.readBoard();
+	}
+	
 }
