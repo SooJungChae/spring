@@ -17,3 +17,9 @@ This repository is for spring.js study.
 
 # 4주차
 - [스프링 철저 입문 5장 공부하기 - 웹 애플리케이션 개발](https://github.com/SooJungChae/spring/blob/master/스프링철저입문05.md)
+- db 연동 된 게시판 화면에 보여주기
+
+# 5주차
+- [스프링 철저 입문 6장 공부하기 - RESTful 웹 서비스 개발](https://github.com/SooJungChae/spring/blob/master/스프링철저입문06.md)
+- 과제: 게시판 프로젝트 CRUD 작업해오기. (contents/3 여기서 mysql where 부분 에러나고 있음)
+
