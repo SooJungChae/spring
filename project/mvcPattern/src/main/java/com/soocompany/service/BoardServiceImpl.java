@@ -20,5 +20,22 @@ public class BoardServiceImpl {
 	public List<BoardVO> selectBoardList() {
 		return dao.readBoard();
 	}
-	
+
+	public BoardVO boardDetail(int id) {
+		return dao.boardDetail(id);
+	}
+
+	public BoardVO writeBoard(BoardVO boardVO) {
+		dao.writeBoard(boardVO);
+		return boardVO;
+	}
+
+	public BoardVO editBoard(Integer id, BoardVO boardVO) {
+		dao.editBoard(id, boardVO);
+		return boardVO;
+	}
+
+	public void deleteBoard(int id) {
+		dao.deleteBoard(id);
+	}
 }
