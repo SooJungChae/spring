@@ -23,3 +23,13 @@ This repository is for spring.js study.
 - [스프링 철저 입문 6장 공부하기 - RESTful 웹 서비스 개발](https://github.com/SooJungChae/spring/blob/master/스프링철저입문06.md)
 - 과제: 게시판 프로젝트 CRUD 작업해오기. (contents/3 여기서 mysql where 부분 에러나고 있음)
 
+# 6주차
+- 게시판 CRUD 코드리뷰
+
+# 7주차
+- 스프링 철저 입문 8장 공부하기 - 스프링 테스트
+- 회원가입 구현
+
+# 8주차 (2018-08-08)
+- 스프링 철저 입문 9장 공부하기 - 스프링 시큐리티
+- 토요일에 할 것:로그인/회원가입/게시판회원정보보여주기 구현 + js 16, 24, 25 공부해오기
