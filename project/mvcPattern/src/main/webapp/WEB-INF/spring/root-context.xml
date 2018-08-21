@@ -35,5 +35,6 @@
     <!--  bean 등 -->
     <context:component-scan base-package="com.soocompany.dao"></context:component-scan>
     <context:component-scan base-package="com.soocompany.service"></context:component-scan>
-	<context:component-scan base-package="com.soocompany.application.login"></context:component-scan>
+	<context:component-scan base-package="com.soocompany.application"></context:component-scan>
+	<!--<context:component-scan base-package="com.soocompany.application.login"></context:component-scan>-->
 </beans>
