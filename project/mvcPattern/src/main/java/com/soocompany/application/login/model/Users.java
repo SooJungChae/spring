@@ -3,16 +3,16 @@ package com.soocompany.application.login.model;
 import java.util.Date;
 
 public class Users {
-    private long uid;
+    private String uid;
     private String userName;
     private String password;
     private Date regDate;
 
-    public long getUid() {
+    public String getUid() {
         return uid;
     }
 
-    public void setUid(long uid) {
+    public void setUid(String uid) {
         this.uid = uid;
     }
 
