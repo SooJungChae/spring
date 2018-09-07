@@ -29,7 +29,7 @@
         // internal storage for locale config files
         locales = {},
 
-        // extra moment internal properties (plugins register props here)
+        // extra moment internal properties (plugins user props here)
         momentProperties = [],
 
         // check for nodeJS

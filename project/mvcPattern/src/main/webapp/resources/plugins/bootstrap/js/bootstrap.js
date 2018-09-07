@@ -2429,7 +2429,7 @@
 
       var $target = $$$1(target).one(Event.SHOW, function (showEvent) {
         if (showEvent.isDefaultPrevented()) {
-          // Only register focus restorer if modal will actually get shown
+          // Only user focus restorer if modal will actually get shown
           return;
         }
 

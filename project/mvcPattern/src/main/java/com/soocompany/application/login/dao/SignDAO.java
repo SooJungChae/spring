@@ -18,13 +18,5 @@ public class SignDAO {
         return sqlSession.insert("sign.insertUser", user);
     }
 
-    // 아이디 체크
-    //    public int checkId(Users user) {
-    //        return sqlSession.select("sign.selectId", user);
-    //    }
 
-     //비밀번호 체크
-//    public int checkPassword(Users user) {
-//        return sqlSession.select("sign.selectUser")
-//    }
 }

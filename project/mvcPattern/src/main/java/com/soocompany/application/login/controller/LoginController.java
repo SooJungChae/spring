@@ -20,8 +20,4 @@ public class LoginController {
         // 데이터, view
         return "redirect:/board";
     }
-
-    // 회원가입 창으로 이동
-    @RequestMapping(value = "/register", method= RequestMethod.GET)
-    public String register() { return "register/register"; }
 }

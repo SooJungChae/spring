@@ -1,11 +1,19 @@
 package com.soocompany.application.login.model;
 
+import com.sun.istack.internal.NotNull;
+
 import java.util.Date;
 
 public class Users {
+
+    @NotNull
     private String uid;
+
     private String userName;
+
+    @NotNull
     private String password;
+
     private Date regDate;
 
     public String getUid() {

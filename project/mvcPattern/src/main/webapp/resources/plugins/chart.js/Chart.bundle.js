@@ -1683,7 +1683,7 @@ function hooks () {
     return hookCallback.apply(null, arguments);
 }
 
-// This is done to register the method called with moment()
+// This is done to user the method called with moment()
 // without creating circular dependencies.
 function setHookCallback (callback) {
     hookCallback = callback;
@@ -3503,7 +3503,7 @@ function chooseLocale(names) {
 
 function loadLocale(name) {
     var oldLocale = null;
-    // TODO: Find a better way to register and load all the locales in Node
+    // TODO: Find a better way to user and load all the locales in Node
     if (!locales[name] && (typeof module !== 'undefined') &&
             module && module.exports) {
         try {
@@ -6299,7 +6299,7 @@ Chart.pluginService = Chart.plugins;
 
 /**
  * Provided for backward compatibility, inheriting from Chart.PlugingBase has no
- * effect, instead simply create/register plugins via plain JavaScript objects.
+ * effect, instead simply create/user plugins via plain JavaScript objects.
  * @interface Chart.PluginBase
  * @deprecated since version 2.5.0
  * @todo remove at version 3
@@ -10802,7 +10802,7 @@ function sortByWeight(array, reverse) {
  */
 
 // The layout service is very self explanatory.  It's responsible for the layout within a chart.
-// Scales, Legends and Plugins all rely on the layout service and can easily register to be placed anywhere they need
+// Scales, Legends and Plugins all rely on the layout service and can easily user to be placed anywhere they need
 // It is this service's responsibility of carrying out that layout.
 module.exports = {
 	defaults: {},
@@ -10894,7 +10894,7 @@ module.exports = {
 		// The areas L1 and L2 are the left axes. R1 is the right axis, T1 is the top axis and
 		// B1 is the bottom axis
 		// There are also 4 quadrant-like locations (left to right instead of clockwise) reserved for chart overlays
-		// These locations are single-box locations only, when trying to register a chartArea location that is already taken,
+		// These locations are single-box locations only, when trying to user a chartArea location that is already taken,
 		// an error will be thrown.
 		//
 		// |----------------------------------------------------|
@@ -12509,7 +12509,7 @@ var layouts = require(30);
 module.exports = function(Chart) {
 
 	Chart.scaleService = {
-		// Scale registration object. Extensions can register new scale types (such as log or DB scales) and then
+		// Scale registration object. Extensions can user new scale types (such as log or DB scales) and then
 		// use the new chart options to grab the correct scale
 		constructors: {},
 		// Use a registration function so that we can move to an ES6 map when we no longer need to support
