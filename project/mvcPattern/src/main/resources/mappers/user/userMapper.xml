@@ -5,7 +5,7 @@
 
 <mapper namespace="user">
 
-    <select id="selectId" parameterType="String">
+    <select id="selectId" parameterType="String" resultType="Integer">
 		SELECT COUNT(uid)
 		FROM user
 		WHERE uid = #{uid}

@@ -16,19 +16,11 @@ public class RegisterDAO {
     // 아이디 체크
     public boolean isExistUser(String uid) {
         boolean result = true;
-        List list = null;
+        Integer list;
 
-        try {
-            list = sqlSession.selectOne("user.selectId", uid);
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
-        finally {
-            sqlSession.close();
-        }
+        list = sqlSession.selectOne("user.selectId", uid);
 
-        if (list == null) {
+        if (list == 0) {
             result = false;
         }
 
