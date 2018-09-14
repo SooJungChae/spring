@@ -27,6 +27,19 @@ public class RegisterDAO {
         return result;
     }
 
+    public Integer insertUser(Users user) {
+        Integer result = -1;
+
+        try {
+            result = sqlSession.insert("user.insert", user);
+        }
+        catch (Exception ex) {
+            return result;
+        }
+
+        return result;
+    }
+
 
 
     //비밀번호 체크

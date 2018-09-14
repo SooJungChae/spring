@@ -5,10 +5,22 @@
 
 <mapper namespace="user">
 
+    <!--<resultMap id="result" type="UserVO">-->
+        <!--<result property="id" column="uid"/>-->
+        <!--<result property="password" column="password"/>-->
+    <!--</resultMap>-->
+
     <select id="selectId" parameterType="String" resultType="Integer">
 		SELECT COUNT(uid)
 		FROM user
 		WHERE uid = #{uid}
 	</select>
+
+	<insert id="insert" parameterType="com.soocompany.application.login.model.Users">
+        INSERT INTO user
+        (uid, password)
+        VALUES
+        (#{uid}, ${password})
+    </insert>
 
 </mapper>

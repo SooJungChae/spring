@@ -20,7 +20,7 @@ public class RegisterService {
             return CommonMessage.FAIL;
         }
 
-        // dao.insertUser(user);
+        dao.insertUser(user);
 
         return CommonMessage.SUCCESS;
     }
