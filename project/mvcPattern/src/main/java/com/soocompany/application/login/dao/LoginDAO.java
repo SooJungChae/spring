@@ -13,8 +13,7 @@ public class LoginDAO {
 
     // 사용자 체크
     public int isLoginUser(Users user) {
-        Integer userCount = -1;
-        userCount = sqlSession.selectOne("user.login", user);
+        Integer userCount = sqlSession.selectOne("user.login", user);
         return userCount;
     }
 }
