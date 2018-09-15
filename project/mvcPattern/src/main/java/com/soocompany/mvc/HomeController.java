@@ -56,7 +56,7 @@ public class HomeController {
 
 		model.addAttribute("list", list);
 
-		return new ModelAndView("boardMain", model);
+		return new ModelAndView("board/boardMain", model);
 	}
 
 	@RequestMapping(value="/contents")
