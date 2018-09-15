@@ -23,4 +23,12 @@
         (#{uid}, ${password})
     </insert>
 
+    <select id="login" parameterType="com.soocompany.application.login.model.Users" resultType="Integer">
+		SELECT COUNT(uid)
+		FROM user
+		WHERE
+		uid = #{uid} AND
+		password = #{password}
+	</select>
+
 </mapper>

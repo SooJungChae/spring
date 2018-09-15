@@ -6,17 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class SignDAO {
-
-    // private static String NAMESPACE = "com.";
+public class LoginDAO {
 
     @Autowired
     private SqlSession sqlSession;
 
-    // 사용자 저장
-    public int insertUser(Users user) {
-        return sqlSession.insert("sign.insertUser", user);
+    // 사용자 체크
+    public int isLoginUser(Users user) {
+        Integer userCount = -1;
+        userCount = sqlSession.selectOne("user.login", user);
+        return userCount;
     }
-
-
 }
