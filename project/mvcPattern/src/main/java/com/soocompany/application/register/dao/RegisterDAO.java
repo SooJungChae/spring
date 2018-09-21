@@ -13,18 +13,8 @@ public class RegisterDAO {
     @Autowired
     private SqlSession sqlSession;
 
-    // 아이디 체크
-    public boolean isExistUser(String uid) {
-        boolean result = true;
-        Integer list;
-
-        list = sqlSession.selectOne("user.selectId", uid);
-
-        if (list == 0) {
-            result = false;
-        }
-
-        return result;
+    public Integer isExistUser(String uid) {
+        return sqlSession.selectOne("user.selectId", uid);
     }
 
     public Integer insertUser(Users user) {
