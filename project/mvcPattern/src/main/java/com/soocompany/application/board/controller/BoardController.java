@@ -10,10 +10,13 @@ public class BoardController {
 
     @RequestMapping(value = "/board", method = RequestMethod.GET)
     public ModelAndView Board() {
+
+        ModelAndView mv = new ModelAndView();
         // 로그인 아이디
 
         // 게시판 글 보여주기
-        ModelAndView mv = new ModelAndView();
+
+
         mv.addObject("board/board");
         return mv;
     }
