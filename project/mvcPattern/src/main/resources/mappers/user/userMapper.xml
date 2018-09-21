@@ -27,8 +27,8 @@
 		SELECT COUNT(uid)
 		FROM user
 		WHERE
-		uid = #{uid} AND
-		password = #{password}
+		uid = #{uid}
+		AND password = #{password}
 	</select>
 
 </mapper>
