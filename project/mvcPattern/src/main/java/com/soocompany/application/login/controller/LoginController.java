@@ -1,5 +1,6 @@
 package com.soocompany.application.login.controller;
 
+import com.soocompany.UserInfo;
 import com.soocompany.application.CommonMessage;
 import com.soocompany.application.login.model.Users;
 import com.soocompany.application.login.service.LoginService;
@@ -14,6 +15,9 @@ public class LoginController {
     @Autowired
     private LoginService service;
 
+    @Autowired
+    private UserInfo userSession;
+
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String getLoginPage() {
         return "login/login";
@@ -23,6 +27,7 @@ public class LoginController {
     public String login(Users user) {
 
         if (service.loginUser(user) == 1) {
+            userSession.setUserId(user.getUid());
             return "redirect:/board";
         }
 
