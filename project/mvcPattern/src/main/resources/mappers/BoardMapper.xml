@@ -4,28 +4,28 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="com.soocompany.mvc.BoardMapper">
-	<select id="selectBoard" resultType="com.soocompany.dto.BoardVO">
+	<select id="selectBoard" resultType="com.soocompany.application.board.model.BoardVO">
 		SELECT title FROM board
 	</select>
 	
-	<select id="readBoard" resultType="com.soocompany.dto.BoardVO">
+	<select id="readBoard" resultType="com.soocompany.application.board.model.BoardVO">
 		SELECT idx, title, contents, writer, regDate FROM board
 	</select>
 	
-	<!--<select id="editBoard" resultType="com.soocompany.dto.BoardVO">-->
+	<!--<select id="editBoard" resultType="com.soocompany.application.board.model.BoardVO">-->
 		<!--SELECT idx, title, contents, writer, regDate FROM board where idx = '1'-->
 	<!--</select>-->
 	
-	<select id="boardDetail" resultType="com.soocompany.dto.BoardVO">
+	<select id="boardDetail" resultType="com.soocompany.application.board.model.BoardVO">
 		SELECT idx, title, contents, writer, regDate FROM board where idx = #{id}
 	</select>
 
-	<insert id="writeBoard" parameterType="com.soocompany.dto.BoardVO">
+	<insert id="writeBoard" parameterType="com.soocompany.application.board.model.BoardVO">
 		INSERT INTO board (title, contents, writer)
 		VALUES (#{title}, #{contents}, #{writer})
 	</insert>
 
-	<update id="editBoard" parameterType="com.soocompany.dto.BoardVO" >
+	<update id="editBoard" parameterType="com.soocompany.application.board.model.BoardVO" >
 		UPDATE board
 		SET title = #{title},
 			contents = #{contents},

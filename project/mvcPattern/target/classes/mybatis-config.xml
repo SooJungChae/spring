@@ -5,7 +5,7 @@
     <configuration>
     
         <typeAliases>
-            <typeAlias type="com.soocompany.dto.BoardVO" alias="BoardVO"/>
+            <typeAlias type="com.soocompany.application.board.model.BoardVO" alias="BoardVO"/>
         </typeAliases>
         
     </configuration>

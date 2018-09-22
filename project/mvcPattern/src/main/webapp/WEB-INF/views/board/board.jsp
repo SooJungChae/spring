@@ -1,5 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page session="false" %>
+<spring:eval var="userInfo" expression="@userInfo" />
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -12,9 +15,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <title>AdminLTE 3 | Starter</title>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="/resources/plugins/font-awesome/css/font-awesome.min.css">
@@ -32,7 +32,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
-          <p>로그인: </p>${userId}
+          <p>로그인: </p>${userInfo.userId}
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
@@ -63,12 +63,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <tbody>
                                     <c:choose>
                                         <c:when test="${fn:length(list) > 0 }">
-                                            <c:forEach items="${list}" var="readBoard">
+                                            <c:forEach items="${list}" var="boards">
                                                 <tr>
-                                                    <th scope="row">${readBoard.idx}</th>
-                                                    <th scope="row"><a href="contents/${readBoard.idx}">${readBoard.title}</a></th>
-                                                    <th scope="row">${readBoard.writer}</th>
-                                                    <th scope="row">${readBoard.regDate}</th>
+                                                    <th scope="row">${boards.idx}</th>
+                                                    <th scope="row"><a href="contents/${boards.idx}">${boards.title}</a></th>
+                                                    <th scope="row">${boards.writer}</th>
+                                                    <th scope="row">${boards.regDate}</th>
                                                 </tr>
                                             </c:forEach>
                                         </c:when>
