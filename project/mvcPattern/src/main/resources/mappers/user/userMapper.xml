@@ -20,7 +20,7 @@
         INSERT INTO user
         (uid, password)
         VALUES
-        (#{uid}, ${password})
+        (#{uid}, #{password})
     </insert>
 
     <select id="login" parameterType="com.soocompany.application.login.model.Users" resultType="Integer">
