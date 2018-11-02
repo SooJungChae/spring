@@ -33,3 +33,10 @@ This repository is for spring.js study.
 # 8주차 (2018-08-08)
 - 스프링 철저 입문 9장 공부하기 - 스프링 시큐리티
 - 토요일에 할 것:로그인/회원가입/게시판회원정보보여주기 구현 + js 16, 24, 25 공부해오기
+
+# ...
+
+# 15주차 (2018-09-29)
+- 스프링 철저 입문 다시 복습하기로 함
+- [스프링 철저 입문 2장 DI](https://github.com/SooJungChae/spring/blob/master/스프링철저입문02.md)
+- 다음 주 2장 AOP 부분 공부
