@@ -19,6 +19,7 @@
     <br/>
     <label>비밀번호</label>
     <input type="text" name="password" placeholder="비밀번호를 입력해주세요."  />
+    <div style="color:red;">${msg}</div>
     <button type="submit">로그인</button>
     <a href="/register">회원가입 하러 가기</a>
 </form>
