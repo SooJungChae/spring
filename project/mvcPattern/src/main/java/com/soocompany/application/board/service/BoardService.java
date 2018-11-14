@@ -18,7 +18,8 @@ public class BoardService {
     }
 
     public List<BoardVO> selectBoards() {
-        return dao.selectBoards();
+        List<BoardVO> result = dao.selectBoards();
+        return result;
     }
 
     public Integer insertBoard(BoardVO board) {

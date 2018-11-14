@@ -62,8 +62,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </thead>
                                     <tbody>
                                     <c:choose>
-                                        <c:when test="${fn:length(list) > 0 }">
-                                            <c:forEach items="${list}" var="boards">
+                                        <c:when test="${fn:length(boards) > 0 }">
+                                            <c:forEach items="${boards}" var="boards">
                                                 <tr>
                                                     <th scope="row">${boards.idx}</th>
                                                     <th scope="row"><a href="contents/${boards.idx}">${boards.title}</a></th>

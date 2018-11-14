@@ -18,7 +18,7 @@ public class BoardDAO {
         return sqlSession.selectOne("board.select");
     }
 
-    public List<BoardVO> selectBoards() {
+    public List selectBoards() {
         return sqlSession.selectList("board.selectAll");
     }
 
