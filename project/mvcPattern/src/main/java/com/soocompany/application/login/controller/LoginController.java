@@ -22,29 +22,36 @@ public class LoginController {
     @Autowired
     private UserInfo userSession;
 
+    // value = "/login" 와 params 의 차이는?
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String getLoginPage() {
-        return "login/login";
+        return "main/main";
     }
 
-    @RequestMapping(value = "/login", method= RequestMethod.POST)
+    @RequestMapping(params = "login", method = RequestMethod.POST)
     public ModelAndView login(HttpServletRequest request, Users user) {
 
         ModelAndView mv = new ModelAndView();
-        HttpSession session = request.getSession(true);
 
         // 해당 사용자의 로그인 정보를 가져온다.
-        if (service.loginUser(user) == 1) {
-            // 조회된 정보를 session 에 등록한다.
-            session.setAttribute("userId", user.getUid());
-            mv.setViewName("redirect:/board");
+        // 아이디, 패스워드 체크
+        if (!service.checkValidUser(user)) {
+
+            // 사용자 없으면 실패 메세지 보여주기
+            mv.setViewName("main/main");
+            mv.addObject("msg", CommonMessage.FAIL);
             return mv;
-            // return "redirect:/board";
         }
 
-        // 사용자 없으면 실패 메세지 보여주기
-        mv.setViewName("login/login");
-        mv.addObject("msg", CommonMessage.FAIL);
+        // 사용자 조회 성공.
+        // 조회된 정보를 session 에 등록한다.
+        // session.setAttribute("userId", user.getUid());
+        mv.setViewName("redirect:/board");
         return mv;
+    }
+
+    @RequestMapping(params = "register", method = RequestMethod.POST)
+    public String register(HttpServletRequest request) {
+        return "redirect:/register";
     }
 }

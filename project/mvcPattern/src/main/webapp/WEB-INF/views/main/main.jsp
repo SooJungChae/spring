@@ -65,6 +65,9 @@
         </div>
         <div class="loginForm">
             <div>
+                <div style="color:red;">${msg}</div>
+            </div>
+            <div>
                 <label>아이디</label>
                 <input type="text" name="uid" placeholder="아이디를 입력해주세요."  />
             </div>
