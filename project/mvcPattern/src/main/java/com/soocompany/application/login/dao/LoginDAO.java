@@ -15,4 +15,10 @@ public class LoginDAO {
     public int isLoginUser(Users user) {
         return sqlSession.selectOne("user.login", user);
     }
+
+    //
+    public int isValidUser(Users user) {
+        return sqlSession.selectOne("user.login", user);
+//        return sqlSession.
+    }
 }

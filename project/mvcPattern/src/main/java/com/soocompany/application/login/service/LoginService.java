@@ -11,7 +11,15 @@ public class LoginService {
     @Autowired
     private LoginDAO dao;
 
-    public Integer loginUser(Users user) {
+    public int isLoginUser(Users user) {
         return dao.isLoginUser(user);
     }
+
+    public boolean checkValidUser(Users user) {
+        Integer result = dao.isValidUser(user);
+        return result != 0 ? true : false;
+    }
+//    public Integer loginUser(Users user) {
+//        return dao.isLoginUser(user);
+//    }
 }
